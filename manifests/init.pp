@@ -41,6 +41,7 @@ class sudo (
   $sudoers         = {},
   $manage_sudoersd = false,
   $manage_package  = true,
+  $package_ensure  = latest,
   $sudoers_file    = ''
 ) {
 
@@ -48,7 +49,7 @@ class sudo (
 
   if $manage_package {
     package { 'sudo':
-      ensure  => latest
+      ensure  => $package_ensure
     }
   }
 
